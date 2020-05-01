@@ -1,4 +1,8 @@
 {
+  "name": "sourcebroker/wordpress-starter",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate installed in root with bedrock style configuration (.env / environments)",
   "config": {
     "preferred-install": "dist",
     "process-timeout": 99999,
