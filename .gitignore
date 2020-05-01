@@ -1,0 +1,30 @@
+/index.php
+/wp-*
+/xmlrpc.php
+/readme.html
+/license.txt
+/liesmich.html
+!/wp-config.php
+!/wp-content
+/wp-content/index.php
+/wp-content/uploads
+/wp-content/upgrade
+/wp-content/languages
+/wp-content/plugins
+
+/vendor
+/.dep
+
+# WordPress
+/.htaccess
+
+# Dotenv
+/.env
+/.env.*
+/!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+/wp-cli.local.yml

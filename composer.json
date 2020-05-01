@@ -1,0 +1,38 @@
+{
+  "config": {
+    "preferred-install": "dist",
+    "process-timeout": 99999,
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "require": {
+    "symfony/dotenv": "^4.0 || ^5.0",
+    "oscarotero/env": "^1.2",
+    "roots/wp-config": "1.0.0",
+    "roots/wp-password-bcrypt": "^1.0",
+
+    "sourcebroker/deployer-extended-wordpress": "1.0.0",
+    "wp-cli/core-command": "^2.0",
+    "wp-cli/db-command": "^2.0"
+  },
+  "extra": {
+
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    }
+  ],
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\"",
+      "./vendor/bin/wp core download && ./vendor/bin/wp core install"
+    ],
+    "test": [
+      "phpcs"
+    ]
+  }
+}
