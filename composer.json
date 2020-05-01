@@ -22,7 +22,7 @@
   "prefer-stable": true,
   "scripts": {
     "install-wp": [
-      "export $(grep WP_HOME config/.env | xargs) && ./vendor/bin/wp core download && ./vendor/bin/wp core install --url= --title=Example --admin_user=admin --admin_password=joh316 --admin_email=admin@example.com --skip-email --skip-plugins --skip-themes"
+      "export $(grep WP_HOME config/.env | xargs) && ./vendor/bin/wp core download && ./vendor/bin/wp core install --url=$WP_HOME --title=Example --admin_user=admin --admin_password=joh316 --admin_email=admin@example.com --skip-email --skip-plugins --skip-themes"
     ]
   }
 }
