@@ -25,8 +25,12 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('config/.env.example', 'config/.env');\"",
+      "./vendor/bin/wp core download"
+    ],
     "install-wp": [
-      "export $(grep WP_HOME config/.env | xargs) && ./vendor/bin/wp core download && ./vendor/bin/wp core install --url=$WP_HOME --title=Example --admin_user=admin --admin_password=joh316 --admin_email=admin@example.com --skip-email --skip-plugins --skip-themes"
+      "export $(grep WP_HOME config/.env | xargs) && ./vendor/bin/wp core install --url=$WP_HOME --title=Example --admin_user=admin --admin_password=joh316 --admin_email=admin@example.com --skip-email --skip-plugins --skip-themes"
     ]
   }
 }
