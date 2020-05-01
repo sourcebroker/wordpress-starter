@@ -22,8 +22,8 @@ Env::init();
 /**
  * Use Symfony/Dotenv to set required environment variables and load .env file in root
  */
-if (file_exists(dirname(__DIR__) . '/.env')) {
-    (new Symfony\Component\Dotenv\Dotenv())->load(dirname(__DIR__) . '/.env');
+if (file_exists(__DIR__ . '/.env')) {
+    (new Symfony\Component\Dotenv\Dotenv())->load(__DIR__ . '/.env');
 }
 
 /**
