@@ -10,3 +10,8 @@ if (defined('APPLICATION_PROTECTION_DISABLED') && APPLICATION_PROTECTION_DISABLE
         }
     }
 }
+
+// We have vendor on root level. Be sure its not accessible.
+if(!file_exists(ABSPATH . 'vendor/.htaccess')) {
+    file_put_contents(ABSPATH . 'vendor/.htaccess', 'deny from all');
+}
