@@ -25,7 +25,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
-    "post-root-package-install": [
+    "post-create-project-cmd": [
       "php -r \"copy('config/.env.example', 'config/.env');\"",
       "[ ! -e \"wp-admin\" ] ./vendor/bin/wp core download"
     ],
