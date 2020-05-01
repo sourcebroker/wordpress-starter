@@ -21,4 +21,5 @@ host('beta', '111.111.111.111')
 
 host('local')
     ->set('public_urls', ['https://example-com.dev', 'https://sub-example-com.dev'])
+    ->set('vhost_nocurrent', true)
     ->set('deploy_path', getcwd());
