@@ -2,6 +2,8 @@
 
 namespace Deployer;
 
+(php_sapi_name() !== 'cli') && die('Not CLI');
+
 require_once(__DIR__ . '/vendor/sourcebroker/deployer-loader/autoload.php');
 new \SourceBroker\DeployerExtendedWordpress\Loader();
 
