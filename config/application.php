@@ -23,7 +23,11 @@ Env::init();
  * Use Symfony/Dotenv to set required environment variables and load .env file in root
  */
 if (file_exists(__DIR__ . '/.env')) {
-    (new Symfony\Component\Dotenv\Dotenv())->load(__DIR__ . '/.env');
+    (new Symfony\Component\Dotenv\Dotenv())->loadEnv(__DIR__ . '/.env', 'WP_INSTANCE', '');
+}
+
+if(env('WP_INSTANCE') === null) {
+    throw new \RuntimeException('WP_INSTANCE must be set in config/env.local. For local development set WP_INSTANCE=\'dev\'');
 }
 
 /**
@@ -31,7 +35,6 @@ if (file_exists(__DIR__ . '/.env')) {
  * Default: production
  */
 define('WP_ENV', env('WP_ENV') ?: 'production');
-
 
 /**
  * Application protection. Only logged user can see frontend.
@@ -42,7 +45,7 @@ Config::define('APPLICATION_PROTECTION_DISABLED', env('APPLICATION_PROTECTION_DI
  * URLs
  */
 Config::define('WP_HOME', env('WP_HOME'));
-Config::define('WP_SITEURL', env('WP_SITEURL'));
+Config::define('WP_SITEURL', env('WP_HOME'));
 
 /**
  * DB settings
