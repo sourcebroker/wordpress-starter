@@ -21,7 +21,7 @@ host('beta', '111.111.111.111')
     ->set('public_urls', ['https://beta.example.com', 'https://beta-sub.example.com'])
     ->set('deploy_path', '/var/www/example.com.beta');
 
-host('local')
-    ->set('public_urls', ['https://example-com.dev', 'https://sub-example-com.dev'])
+host('dev')
+    ->set('public_urls', ['https://example-com.ddev.site', 'https://sub-example-com.ddev.site'])
     ->set('vhost_nocurrent', true)
     ->set('deploy_path', getcwd());
