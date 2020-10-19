@@ -13,25 +13,13 @@
   "require": {
     "symfony/dotenv": "^4.0 || ^5.0",
     "oscarotero/env": "^1.2",
-    "roots/wp-config": "1.0.0",
+    "roots/wp-config": "^1.0.0",
     "roots/wp-password-bcrypt": "^1.0",
-    "sourcebroker/deployer-extended": "dev-master as 13.0.1",
     "sourcebroker/deployer-extended-wordpress": "dev-master",
     "wp-cli/core-command": "^2.0",
-    "wp-cli/db-command": "^2.0"
+    "wp-cli/db-command": "^2.0",
+    "wp-cli/rewrite-command": "^2.0"
   },
   "minimum-stability": "dev",
-  "prefer-stable": true,
-  "scripts": {
-    "post-create-project-cmd": [
-      "php -r \"copy('config/.env.example', 'config/.env');\"",
-      "test ! -e \"wp-admin\" && ./vendor/bin/wp core download"
-    ],
-    "post-root-package-install": [
-      "type direnv > /dev/null && direnv allow"
-    ],
-    "install-wp": [
-      "export $(grep WP_HOME config/.env | xargs) && ./vendor/bin/wp core install --url=$WP_HOME --title=Example --admin_user=admin --admin_password=joh316 --admin_email=admin@example.com --skip-email --skip-plugins --skip-themes"
-    ]
-  }
+  "prefer-stable": true
 }

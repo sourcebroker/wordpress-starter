@@ -18,6 +18,7 @@ use Roots\WPConfig\Config;
  * Expose global env() function from oscarotero/env
  */
 Env::init();
+Env::$options |= Env::USE_ENV_ARRAY;
 
 /**
  * Use Symfony/Dotenv to set required environment variables and load .env file in root
@@ -25,8 +26,7 @@ Env::init();
 if (file_exists(__DIR__ . '/.env')) {
     (new Symfony\Component\Dotenv\Dotenv())->loadEnv(__DIR__ . '/.env', 'WP_INSTANCE', '');
 }
-
-if(env('WP_INSTANCE') === null) {
+if (env('WP_INSTANCE') === null) {
     throw new \RuntimeException('WP_INSTANCE must be set in config/env.local. For local development set WP_INSTANCE=\'dev\'');
 }
 
@@ -113,6 +113,7 @@ if (file_exists($env_config)) {
 
 Config::apply();
 
+
 if (!defined('ABSPATH')) {
-    define('ABSPATH', dirname(__DIR__));
+    define('ABSPATH', dirname(__DIR__) . '/');
 }

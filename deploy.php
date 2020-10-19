@@ -24,6 +24,6 @@ host('beta', '111.111.111.111')
     ->set('deploy_path', '/var/www/example.com.beta');
 
 host('dev')
-    ->set('public_urls', ['https://example-com.ddev.site', 'https://sub-example-com.ddev.site'])
+    ->set('public_urls', ['https://wordpress-starter.ddev.site', 'https://sub-wordpress-starter.ddev.site'])
     ->set('vhost_nocurrent', true)
     ->set('deploy_path', getcwd());
